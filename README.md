@@ -39,18 +39,24 @@ DEPLOY10
 ACTIVATE10
 DONEWS
 FRANKFURT
-Initial Server Setup
+
+## Initial Server Setup
+
 Step One -- Root Login
 if you are not already connected to your server, go ahead and log in as the root user using the following command (substitute the highlighted word with your server's public IP address):
 
 ssh root@your_server_ip
-Step Two — Create a New User
+
+## Step Two — Create a New User
+
 Once you are logged in as root, we're prepared to add the new user account that we will use to log in from now on.
 
 This example creates a new user called "devmountain", but you should replace it with a username that you like:
 
 adduser devmountain
-Step Three — Root Privileges
+
+## Step Three — Root Privileges
+
 Now, we have a new user account with regular account privileges. However, we may sometimes need to do administrative tasks.
 
 To avoid having to log out of our normal user and log back in as the root account, we can set up what is known as "superuser" or root privileges for our normal account. This will allow our normal user to run commands with administrative privileges by putting the word sudo before each command.
@@ -58,7 +64,9 @@ To avoid having to log out of our normal user and log back in as the root accoun
 As root, run this command to add your new user to the sudo group (substitute the highlighted word with your new user):
 
 usermod -aG sudo devmountain
-Step Four — Add Public Key Authentication (Recommended)
+
+## Step Four — Add Public Key Authentication (Recommended)
+
 The next step in securing your server is to set up public key authentication for your new user. Setting this up will increase the security of your server by requiring a private SSH key to log in.
 
 Generate a Key Pair
@@ -112,7 +120,8 @@ Type this command once to return to the root user:
 exit
 Now your public key is installed, and you can use SSH keys to log in as your user.
 
-Step Five — Test Log In
+## Step Five — Test Log In
+
 In a new terminal on your local machine, log in to your server using the new account that we created. To do so, use this command (substitute your username and server IP address):
 
 ssh devmountain@your_server_ip
