@@ -1,5 +1,6 @@
-Digital Ocean coupons and setup instructions
-Digital ocean is a service that provides you a virtual server that runs 24x7. This server has certain things installed and ready to go, but a few things we need to set up ourselves.
+# Digital Ocean coupons and setup instructions
+
+## Digital ocean is a service that provides you a virtual server that runs 24x7. This server has certain things installed and ready to go, but a few things we need to set up ourselves.
 
 these instructions were selectively copied from the relevant portions of digital ocean's documentations
 
@@ -300,4 +301,5 @@ pm2 start path/to/server/file
 Check to make sure your site is accessible again in the browser, if everything is working, you can now type exit in your terminal to log out
 
 Congrats you have a fully functioning production ready app!
+
 # Digital-ocean-setup-readme
