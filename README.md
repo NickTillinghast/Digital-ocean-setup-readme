@@ -125,14 +125,18 @@ Now your public key is installed, and you can use SSH keys to log in as your use
 In a new terminal on your local machine, log in to your server using the new account that we created. To do so, use this command (substitute your username and server IP address):
 
 ssh devmountain@your_server_ip
-Step Six — Set Up a Basic Firewall
+
+## Step Six — Set Up a Basic Firewall
+
 We need to make sure that the firewall allows SSH connections so that we can log back in next time. We can allow these connections by typing:
 
 sudo ufw allow OpenSSH
 Then type
 
 sudo ufw enable
-Setup domain name to be used with Application
+
+## Setup domain name to be used with Application
+
 This part can be done from any domain name provider (e.g. GoDaddy, NameCheap, Google Domais) but we will use GoDaddy
 
 After purchasing your domain name, you will need to Navagate to the DNS records of your new site
@@ -143,10 +147,12 @@ Simply change your A records Value column to your digital ocean server IP addres
 
 Simple as that, it can take up to 48 hours for your domain name to propagate through DNS, this is usually rarely the case however and should update within 10 minutes or so
 
-How To Install Nginx
+## How To Install Nginx
+
 Nginx is one of the most popular web servers in the world and is responsible for hosting some of the largest and highest-traffic sites on the internet. It is more resource-friendly than Apache in most cases and can be used as a web server or a reverse proxy.
 
-Step 1: Install Nginx
+## Step 1: Install Nginx
+
 We need tp update our local package index so that we have access to the most recent package listings. Afterwards, we can install Nginx:
 
 sudo apt-get update
@@ -175,7 +181,8 @@ The nodejs package contains the nodejs binary as well as npm, so you don't need 
 sudo apt-get install build-essential
 The Node.js runtime is now installed, and ready to run an application!
 
-Install PM2
+## Install PM2
+
 Now we will install PM2, which is a process manager for Node.js applications. PM2 provides an easy way to manage and daemonize applications (run them in the background as a service).
 
 Use this command to install PM2:
@@ -212,13 +219,15 @@ Remember to replace the appropriate values with your information (Ie. domain nam
 Make sure you didn't introduce any syntax errors by typing:
 
 sudo nginx -t
-Next, restart Nginx
+
+## Next, restart Nginx
 
 sudo systemctl restart nginx
 Secure Nginx with Let's Encrypt (HTTPS)
 Let's Encrypt is a Certificate Authority (CA) that provides an easy way to obtain and install free TLS/SSL certificates, thereby enabling encrypted HTTPS on web servers.
 
-Step 1 — install certbot
+## Step 1 — install certbot
+
 lets add the CertBot repository to ensure we have the most up to date CertBot version, you can do this by typing
 
 sudo add-apt-repository ppa:certbot/certbot
@@ -228,7 +237,9 @@ sudo apt-get update
 And finally, install Certbot's Nginx package with apt-get.
 
 sudo apt-get install python-certbot-nginx
-Step 2 — Obtaining an SSL Certificate
+
+## Step 2 — Obtaining an SSL Certificate
+
 Certbot provides a variety of ways to obtain SSL certificates, through various plugins. The Nginx plugin will take care of reconfiguring Nginx and reloading the config whenever necessary:
 
 (remember to update the values with your domain name)
@@ -251,7 +262,9 @@ Select the appropriate number [1-2] then [enter] (press 'c' to cancel):
 Select option 2 and press ENTER. The configuration will be updated, and Nginx will reload to pick up the new settings. certbot will wrap up with a message telling you the process was successful and where your certificates are stored
 
 Launching your Express/React App (create-react-app)
-Step 1 — Prepare Application server file
+
+## Step 1 — Prepare Application server file
+
 We need to add a few lines to our server to make sure we are serving the correct files as well as have the correct fallback in place incase a resource isnt found
 
 first you will add the following line to your server/index.js file before any of your routes
@@ -269,7 +282,8 @@ Now go to http://localhost:(your port number)
 
 If your app is running as expected, you can commit it and push it to GitHub
 
-Step 2 — Set up app on server
+## Step 2 — Set up app on server
+
 log into your server as the user you setup in the beginning by typing
 
 (make sure to you your username and server IP)
@@ -292,7 +306,9 @@ run the following commands
 
 npm install
 npm run build
-Step 3 - Start App
+
+## Step 3 - Start App
+
 We can do a test run on our application on the server to make sure we can access the application from the browser
 
 to do this run
